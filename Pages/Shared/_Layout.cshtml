@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - LogísticaPro</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fas fa-truck-fast"></i>
+                <span>LogísticaPro</span>
+            </div>
+
+            <nav class="menu">
+
+                <a asp-page="/Index">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a asp-page="/Produtos/Index">
+                    <i class="fas fa-box"></i>
+                    Produtos
+                </a>
+
+                <a asp-page="/Fornecedores/Index">
+                    <i class="fas fa-building"></i>
+                    Fornecedores
+                </a>
+
+                <a asp-page="/Pedidos/Index">
+                    <i class="fas fa-clipboard-list"></i>
+                    Pedidos
+                </a>
+
+                <a asp-page="/Entregas/Index">
+                    <i class="fas fa-truck"></i>
+                    Entregas
+                </a>
+
+                <a asp-page="/Relatorios/Index">
+                    <i class="fas fa-file-chart-column"></i>
+                    Relatórios
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <div class="main-content">
+
+            <!-- TOPO -->
+            <header class="topbar">
+
+                <h4>@ViewData["Title"]</h4>
+
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Administrador</span>
+                </div>
+
+            </header>
+
+            <!-- CONTEÚDO DAS PÁGINAS -->
+            <main class="content-area">
+
+                @RenderBody()
+
+            </main>
+
+            <!-- RODAPÉ -->
+            <footer class="footer">
+
+                <p>
+                    © @DateTime.Now.Year - Sistema Logístico |
+                    Solução de Gestão de Logística e Estoque
+                </p>
+
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
